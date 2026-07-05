@@ -1,0 +1,7 @@
+node_modules/
+.env
+uploads/kerusakan/*
+uploads/pengembalian/*
+!uploads/kerusakan/.gitkeep
+!uploads/pengembalian/.gitkeep
+npm-debug.log
