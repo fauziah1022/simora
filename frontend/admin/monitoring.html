@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring Node - SIMORA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/monitoring.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-monitoring">
+  <div class="page-header">
+    <div>
+      <h1>Monitoring Sistem Terdistribusi</h1>
+      <p>Status real-time seluruh node server cabang SIMORA</p>
+    </div>
+    <button class="btn btn-outline" id="btnRefreshNode"><i class="fa-solid fa-rotate"></i> Refresh Status</button>
+  </div>
+
+  <div class="node-grid" id="nodeGrid"></div>
+
+  <div class="card sync-card">
+    <div class="card-head">
+      <div>
+        <h3>Log Sinkronisasi Data</h3>
+        <p>Riwayat sinkronisasi antar cabang</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Waktu</th><th>Cabang</th><th>Proses</th><th>Status</th></tr>
+        </thead>
+        <tbody id="syncLogBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script src="js/common.js"></script>
+<script src="js/monitoring.js"></script>
+</body>
+</html>

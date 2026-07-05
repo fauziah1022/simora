@@ -1,0 +1,31 @@
+/* ==========================================================================
+   SIMORA - laporan.css
+   ========================================================================== */
+
+.filter-card { padding: 22px 24px; }
+
+.filter-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.filter-row .form-group { flex: 1; min-width: 160px; margin-bottom: 0; }
+.filter-btn-group { flex: 0 0 auto; }
+
+.export-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+@media print {
+  .sidebar, .topbar, .page-header, .filter-card, .stat-grid, #toast-container { display: none !important; }
+  .main-content { margin-left: 0 !important; }
+  body { background: #fff; color: #000; }
+  #printArea { border: none; box-shadow: none; }
+}

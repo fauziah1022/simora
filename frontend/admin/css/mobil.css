@@ -1,0 +1,32 @@
+/* ==========================================================================
+   SIMORA - mobil.css
+   ========================================================================== */
+
+.data-table td .car-name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.car-name-cell strong { color: #fff; font-weight: 500; }
+.car-name-cell span { font-size: 11.5px; color: var(--text-dim); }
+
+.price-cell { font-weight: 600; color: var(--secondary); }
+
+#modalMobil .modal-box { max-width: 620px; }
+
+.photo-preview {
+  width: 100%;
+  height: 140px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 12px;
+  overflow: hidden;
+  margin-top: 10px;
+  background: #0F1626;
+}
+
+.photo-preview img { width: 100%; height: 100%; object-fit: cover; }

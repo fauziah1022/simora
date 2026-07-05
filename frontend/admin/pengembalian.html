@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengembalian - SIMORA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/pengembalian.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-pengembalian">
+  <div class="page-header">
+    <div>
+      <h1>Data Pengembalian</h1>
+      <p>Pantau proses pengembalian mobil & denda dari seluruh cabang (diproses oleh petugas cabang)</p>
+    </div>
+  </div>
+
+  <div class="toolbar" style="margin-bottom:20px;">
+    <div class="toolbar-left">
+      <select class="select-field" id="filterCabangPengembalian">
+        <option value="">Semua Cabang</option>
+        <option value="Pusat">Pusat</option>
+        <option value="Bandung">Bandung</option>
+        <option value="Garut">Garut</option>
+        <option value="Tasikmalaya">Tasikmalaya</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom:24px;">
+    <div class="card stat-card">
+      <div class="stat-icon icon-warning"><i class="fa-solid fa-clock"></i></div>
+      <div class="stat-info">
+        <span>Menunggu Pengembalian</span>
+        <h3 id="statMenunggu">0</h3>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-success"><i class="fa-solid fa-check-double"></i></div>
+      <div class="stat-info">
+        <span>Sudah Dikembalikan</span>
+        <h3 id="statSelesai">0</h3>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-blue"><i class="fa-solid fa-money-bill-transfer"></i></div>
+      <div class="stat-info">
+        <span>Total Denda Terkumpul</span>
+        <h3 id="statDenda">Rp 0</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-head">
+      <div>
+        <h3>Rental Menunggu Pengembalian</h3>
+        <p>Diproses langsung oleh petugas di masing-masing cabang</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Customer</th><th>Mobil</th><th>Cabang</th><th>Tgl Rental</th><th>Batas Kembali</th></tr>
+        </thead>
+        <tbody id="pendingTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <h3>Riwayat Pengembalian</h3>
+        <p>Histori pengembalian mobil beserta denda</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Customer</th><th>Mobil</th><th>Cabang</th><th>Tgl Kembali Aktual</th><th>Denda</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody id="historyTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script src="js/common.js"></script>
+<script src="js/pengembalian.js"></script>
+</body>
+</html>

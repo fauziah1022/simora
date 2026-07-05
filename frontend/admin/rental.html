@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental - SIMORA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/rental.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-rental">
+  <div class="page-header">
+    <div>
+      <h1>Data Rental</h1>
+      <p>Pantau transaksi penyewaan mobil dari seluruh cabang (dibuat oleh petugas cabang)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="padding:20px 24px 0;">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchRental" placeholder="Cari customer / mobil...">
+        </div>
+        <select class="select-field" id="filterCabangRental">
+          <option value="">Semua Cabang</option>
+          <option value="Pusat">Pusat</option>
+          <option value="Bandung">Bandung</option>
+          <option value="Garut">Garut</option>
+          <option value="Tasikmalaya">Tasikmalaya</option>
+        </select>
+        <select class="select-field" id="filterStatusRental">
+          <option value="">Semua Status</option>
+          <option value="Berjalan">Berjalan</option>
+          <option value="Selesai">Selesai</option>
+          <option value="Dibatalkan">Dibatalkan</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>No</th><th>Customer</th><th>Mobil</th><th>Cabang</th>
+            <th>Tgl Rental</th><th>Tgl Kembali</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="rentalTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script src="js/common.js"></script>
+<script src="js/rental.js"></script>
+</body>
+</html>

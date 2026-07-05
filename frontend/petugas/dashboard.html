@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - SIMORA Petugas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-dashboard">
+  <div class="stat-grid">
+    <div class="card stat-card">
+      <div class="stat-icon icon-blue"><i class="fa-solid fa-car"></i></div>
+      <div class="stat-info">
+        <span>Total Mobil</span>
+        <h3 id="statTotalMobil">0</h3>
+        <p class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> Seluruh cabang</p>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-warning"><i class="fa-solid fa-key"></i></div>
+      <div class="stat-info">
+        <span>Mobil Disewa</span>
+        <h3 id="statMobilDisewa">0</h3>
+        <p class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> Sedang berjalan</p>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-success"><i class="fa-solid fa-users"></i></div>
+      <div class="stat-info">
+        <span>Customer</span>
+        <h3 id="statCustomer">0</h3>
+        <p class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> Terdaftar aktif</p>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-primary"><i class="fa-solid fa-file-signature"></i></div>
+      <div class="stat-info">
+        <span>Rental Aktif</span>
+        <h3 id="statRentalAktif">0</h3>
+        <p class="stat-trend up"><i class="fa-solid fa-arrow-up"></i> Sedang berjalan</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-grid-2">
+    <div class="card chart-card">
+      <div class="card-head">
+        <div>
+          <h3>Grafik Transaksi Rental</h3>
+          <p>Statistik 7 bulan terakhir</p>
+        </div>
+        <select class="select-field" id="chartRange">
+          <option>7 Bulan Terakhir</option>
+          <option>Tahun Ini</option>
+        </select>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="revenueChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card node-card">
+      <div class="card-head">
+        <div>
+          <h3>Menunggu Pengembalian</h3>
+          <p>Rental yang harus segera diproses</p>
+        </div>
+      </div>
+      <ul class="node-list" id="nodeList"></ul>
+      <a href="pengembalian.html" class="node-view-all">Proses Pengembalian <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="card recent-card">
+    <div class="card-head">
+      <div>
+        <h3>Rental Terbaru</h3>
+        <p>Transaksi rental yang baru dibuat</p>
+      </div>
+      <a href="rental.html" class="btn btn-outline btn-sm">Lihat Semua</a>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Customer</th><th>Mobil</th><th>Tanggal Rental</th><th>Status</th></tr>
+        </thead>
+        <tbody id="recentRentalBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

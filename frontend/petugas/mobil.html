@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Mobil - SIMORA Petugas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/mobil.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-mobil">
+  <div class="page-header">
+    <div>
+      <h1>Data Mobil</h1>
+      <p>Cek ketersediaan dan perbarui status unit kendaraan</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="padding:20px 24px 0;">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchMobil" placeholder="Cari nama mobil / plat nomor...">
+        </div>
+        <select class="select-field" id="filterStatus">
+          <option value="">Semua Status</option>
+          <option value="Tersedia">Tersedia</option>
+          <option value="Disewa">Disewa</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>No</th><th>Foto</th><th>Nama Mobil</th><th>Plat Nomor</th><th>Merk</th>
+            <th>Harga / Hari</th><th>Cabang</th><th>Status</th><th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="mobilTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<!-- Modal Tambah/Edit Mobil -->
+<div class="modal-overlay" id="modalMobil">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalMobilTitle">Update Status Mobil</h3>
+      <button class="modal-close" id="closeModalMobil"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="formMobil">
+      <div class="modal-body">
+        <input type="hidden" id="mobilId">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mobilNama">Nama Mobil</label>
+            <input type="text" id="mobilNama" placeholder="Contoh: Toyota Avanza" required>
+          </div>
+          <div class="form-group">
+            <label for="mobilPlat">Plat Nomor</label>
+            <input type="text" id="mobilPlat" placeholder="D 1234 ABC" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mobilMerk">Merk</label>
+            <input type="text" id="mobilMerk" placeholder="Toyota" required>
+          </div>
+          <div class="form-group">
+            <label for="mobilTahun">Tahun</label>
+            <input type="number" id="mobilTahun" placeholder="2023" min="1990" max="2030" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mobilHarga">Harga / Hari (Rp)</label>
+            <input type="number" id="mobilHarga" placeholder="350000" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="mobilCabang">Cabang</label>
+            <select id="mobilCabang" required>
+              <option value="">Pilih Cabang</option>
+              <option value="Pusat">Pusat</option>
+              <option value="Bandung">Bandung</option>
+              <option value="Garut">Garut</option>
+              <option value="Tasikmalaya">Tasikmalaya</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mobilStatus">Status</label>
+            <select id="mobilStatus" required>
+              <option value="Tersedia">Tersedia</option>
+              <option value="Disewa">Disewa</option>
+            </select>
+          </div>
+        </div>
+        <p style="font-size:11.5px; color: var(--text-dim); margin-top:6px;">
+          <i class="fa-solid fa-circle-info"></i> Sebagai petugas, Anda hanya dapat memperbarui status ketersediaan mobil.
+        </p>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" id="cancelModalMobil">Batal</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/mobil.js"></script>
+</body>
+</html>

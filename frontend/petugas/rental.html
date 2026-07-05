@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental - SIMORA Petugas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/rental.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-rental">
+  <div class="page-header">
+    <div>
+      <h1>Data Rental</h1>
+      <p>Kelola transaksi penyewaan mobil</p>
+    </div>
+    <button class="btn btn-primary" id="btnTambahRental"><i class="fa-solid fa-plus"></i> Buat Rental</button>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="padding:20px 24px 0;">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchRental" placeholder="Cari customer / mobil...">
+        </div>
+        <select class="select-field" id="filterStatusRental">
+          <option value="">Semua Status</option>
+          <option value="Berjalan">Berjalan</option>
+          <option value="Selesai">Selesai</option>
+          <option value="Dibatalkan">Dibatalkan</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>No</th><th>Customer</th><th>Mobil</th><th>Cabang</th>
+            <th>Tgl Rental</th><th>Tgl Kembali</th><th>Status</th><th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="rentalTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<!-- Modal Tambah/Edit Rental -->
+<div class="modal-overlay" id="modalRental">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalRentalTitle">Buat Rental</h3>
+      <button class="modal-close" id="closeModalRental"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="formRental">
+      <div class="modal-body">
+        <input type="hidden" id="rentalId">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rentalCustomer">Customer</label>
+            <select id="rentalCustomer" required></select>
+          </div>
+          <div class="form-group">
+            <label for="rentalMobil">Mobil</label>
+            <select id="rentalMobil" required></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rentalTglMulai">Tanggal Rental</label>
+            <input type="date" id="rentalTglMulai" required>
+          </div>
+          <div class="form-group">
+            <label for="rentalTglKembali">Tanggal Kembali</label>
+            <input type="date" id="rentalTglKembali" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rentalCabang">Cabang</label>
+            <input type="text" id="rentalCabang" disabled>
+          </div>
+          <div class="form-group">
+            <label for="rentalStatus">Status</label>
+            <select id="rentalStatus" required>
+              <option value="Berjalan">Berjalan</option>
+              <option value="Selesai">Selesai</option>
+              <option value="Dibatalkan">Dibatalkan</option>
+            </select>
+          </div>
+        </div>
+        <div class="rental-summary" id="rentalSummary"></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" id="cancelModalRental">Batal</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/rental.js"></script>
+</body>
+</html>

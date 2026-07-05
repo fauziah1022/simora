@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer - SIMORA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/customer.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-customer">
+  <div class="page-header">
+    <div>
+      <h1>Data Customer</h1>
+      <p>Lihat data pelanggan dari seluruh cabang (data diinput oleh petugas cabang)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="padding:20px 24px 0;">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchCustomer" placeholder="Cari nama / NIK / no HP...">
+        </div>
+        <select class="select-field" id="filterCabangCustomer">
+          <option value="">Semua Cabang</option>
+          <option value="Pusat">Pusat</option>
+          <option value="Bandung">Bandung</option>
+          <option value="Garut">Garut</option>
+          <option value="Tasikmalaya">Tasikmalaya</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Nama</th><th>NIK</th><th>No HP</th><th>Alamat</th><th>Email</th><th>Cabang</th></tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script src="js/common.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>

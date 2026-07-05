@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer - SIMORA Petugas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/customer.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-customer">
+  <div class="page-header">
+    <div>
+      <h1>Data Customer</h1>
+      <p>Kelola data pelanggan rental mobil</p>
+    </div>
+    <button class="btn btn-primary" id="btnTambahCustomer"><i class="fa-solid fa-user-plus"></i> Tambah Customer</button>
+  </div>
+
+  <div class="card">
+    <div class="toolbar" style="padding:20px 24px 0;">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchCustomer" placeholder="Cari nama / NIK / no HP...">
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Nama</th><th>NIK</th><th>No HP</th><th>Alamat</th><th>Email</th><th>Cabang</th><th>Aksi</th></tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<!-- Modal Tambah/Edit Customer -->
+<div class="modal-overlay" id="modalCustomer">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalCustomerTitle">Tambah Customer</h3>
+      <button class="modal-close" id="closeModalCustomer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="formCustomer">
+      <div class="modal-body">
+        <input type="hidden" id="customerId">
+        <div class="form-group">
+          <label for="customerNama">Nama Lengkap</label>
+          <input type="text" id="customerNama" placeholder="Contoh: Budi Santoso" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customerNik">NIK</label>
+            <input type="text" id="customerNik" placeholder="16 digit NIK" maxlength="16" required>
+          </div>
+          <div class="form-group">
+            <label for="customerHp">No HP</label>
+            <input type="text" id="customerHp" placeholder="0812xxxxxxxx" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customerAlamat">Alamat</label>
+          <textarea id="customerAlamat" placeholder="Alamat lengkap" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customerEmail">Email</label>
+            <input type="email" id="customerEmail" placeholder="nama@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="customerCabang">Cabang</label>
+            <input type="text" id="customerCabang" disabled>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" id="cancelModalCustomer">Batal</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>

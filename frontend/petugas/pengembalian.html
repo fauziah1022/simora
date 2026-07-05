@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengembalian - SIMORA Petugas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/pengembalian.css">
+</head>
+<body>
+
+<div class="app-shell" id="app-shell"></div>
+
+<template id="tpl-pengembalian">
+  <div class="page-header">
+    <div>
+      <h1>Data Pengembalian</h1>
+      <p>Proses pengembalian mobil dan perhitungan denda otomatis</p>
+    </div>
+  </div>
+
+  <div class="stat-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom:24px;">
+    <div class="card stat-card">
+      <div class="stat-icon icon-warning"><i class="fa-solid fa-clock"></i></div>
+      <div class="stat-info">
+        <span>Menunggu Pengembalian</span>
+        <h3 id="statMenunggu">0</h3>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-success"><i class="fa-solid fa-check-double"></i></div>
+      <div class="stat-info">
+        <span>Sudah Dikembalikan</span>
+        <h3 id="statSelesai">0</h3>
+      </div>
+    </div>
+    <div class="card stat-card">
+      <div class="stat-icon icon-blue"><i class="fa-solid fa-money-bill-transfer"></i></div>
+      <div class="stat-info">
+        <span>Total Denda Terkumpul</span>
+        <h3 id="statDenda">Rp 0</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <div class="card-head">
+      <div>
+        <h3>Rental Menunggu Pengembalian</h3>
+        <p>Klik "Proses Kembali" untuk menghitung denda otomatis</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Customer</th><th>Mobil</th><th>Cabang</th><th>Tgl Rental</th><th>Batas Kembali</th><th>Aksi</th></tr>
+        </thead>
+        <tbody id="pendingTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <h3>Riwayat Pengembalian</h3>
+        <p>Histori pengembalian mobil beserta denda</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>No</th><th>Customer</th><th>Mobil</th><th>Tgl Kembali Aktual</th><th>Denda</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody id="historyTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+<!-- Modal Proses Pengembalian -->
+<div class="modal-overlay" id="modalPengembalian">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Proses Pengembalian</h3>
+      <button class="modal-close" id="closeModalPengembalian"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <form id="formPengembalian">
+      <div class="modal-body">
+        <input type="hidden" id="pengembalianRentalId">
+        <div class="return-info" id="returnInfo"></div>
+        <div class="form-group">
+          <label for="tglKembaliAktual">Tanggal Kembali Aktual</label>
+          <input type="date" id="tglKembaliAktual" required>
+        </div>
+        <div class="denda-box" id="dendaBox">
+          <span>Estimasi Denda</span>
+          <strong id="dendaAmount">Rp 0</strong>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+          <label for="keteranganKembali">Keterangan</label>
+          <textarea id="keteranganKembali" placeholder="Kondisi mobil, catatan tambahan, dll."></textarea>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" id="cancelModalPengembalian">Batal</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Konfirmasi Kembali</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/pengembalian.js"></script>
+</body>
+</html>
